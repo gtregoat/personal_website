@@ -16,3 +16,4 @@ artifacts:
     - index.js
     - assets/**/*
     - images/**/*
+    - README.mds
