@@ -6,66 +6,13 @@
 -->
 <html>
 	<head>
-		<title>Gabriel Tregoat's website with AWS</title>
+		<title>Gabriel Tregoat</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		function submitToAPI(e) {
-       e.preventDefault();
-       var URL = "https://vhhmdretpc.execute-api.eu-west-1.amazonaws.com/live";
-            var Namere = /[A-Za-z]{1}[A-Za-z]/;
-            if (!Namere.test($("#name-input").val())) {
-                         alert ("Name can not less than 2 char");
-                return;
-            }
-            var mobilere = /[0-9]{10}/;
-            if (!mobilere.test($("#phone-input").val())) {
-                alert ("Please enter valid mobile number");
-                return;
-            }
-            if ($("#email-input").val()=="") {
-                alert ("Please enter your email id");
-                return;
-            }
-
-            var reeamil = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,6})?$/;
-            if (!reeamil.test($("#email-input").val())) {
-                alert ("Please enter valid email address");
-                return;
-            }
-
-       var name = $("#name-input").val();
-       var phone = $("#phone-input").val();
-       var email = $("#email-input").val();
-       var desc = $("#description-input").val();
-       var data = {
-          name : name,
-          phone : phone,
-          email : email,
-          desc : desc
-        };
-
-       $.ajax({
-         type: "POST",
-         url : "https://abc1234.execute-api.us-east-1.amazonaws.com/01/contact",
-         dataType: "json",
-         crossDomain: "true",
-         contentType: "application/json; charset=utf-8",
-         data: JSON.stringify(data),
-
-
-         success: function () {
-           // clear form and show a success message
-           alert("Successfull");
-           document.getElementById("contact").reset();
-       location.reload();
-         },
-         error: function () {
-           // show an error message
-           alert("UnSuccessfull");
-         }});
-     }
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="shortcut icon" href="images/icon.ico" />
 	</head>
 	<body class="is-preload">
 
@@ -80,9 +27,16 @@
 						<div class="content">
 							<div class="inner">
 								<h1>Gabriel Tregoat</h1>
-								<p>My static website created with AWS. It features a certificate for https thanks to
-									AWS certificate manager, goes through CloudFront for the content delivery, and
-									uses DNS for resolving the name.
+								<p><p> Welcome! I am a French data scientist working in Coventry, United Kingdom.
+									A little while back, I started learning
+									to use AWS tools, which led to creating this website
+									as an experiment. As I was exited by what I was building, I decided to keep it to
+									present who I am and showcase some of my <a href="#work">work</a> here!</p>
+									<p>
+									I wish you a good visit and a lovely day,
+									</p>
+								<p>
+									Gabriel
 								</p>
 							</div>
 						</div>
@@ -103,15 +57,47 @@
 						<!-- Intro -->
 							<article id="intro">
 								<h2 class="major">Intro</h2>
-								<span class="image main"><img src="images/me.jpg" alt="" /></span>
-								<p>I am a data scientist currently experimenting AWS to pursue a certification. Check out some of my <a href="#work">work</a> here!</p>
-								<p>Thanks for checking out my website!</p>
+								<span class="image intro"><img src="images/me.jpg" alt="" /></span>
+								<p style="margin-top: 30px">
+								I am a data scientist working for Shell Energy in Coventry, United Kingdom, where I moved
+								3 years ago. Originally from Paris, I went to study in Nantes to get a master's degree in
+								engineering from Ecole Centrale de Nantes and another in business management from Audencia
+								Business School. I then moved to the United States for a semester in Boston University,
+								before joining Shell Energy in September 2017.
+								</p>
+								<p>
+								My data science journey began when I interned in Telecom ParisTech in 2016. I was working
+								creating an experiment to record EEG signals of people listening to music to retrieve the
+								instrument they were focusing on (a paper was <a href="https://www.isca-speech.org/archive/SMM_2019/pdfs/SMM19_paper_17.pdf">published</a>!).
+								</p>
+								<p>
+								At Shell Energy, my initial focus was Natural Language Processing, mainly sentiment
+								analysis and text classification, often using deep learning (for which I have a keen interest).
+								However, my projects vary in topic and recently my main focus has been binary classification
+								in a problem where feature engineering is key.
+								</p>
+								<p>
+								I am also a Cloud enthusiast (really, its the future, if not the present!). To understand
+								it better and to be able to use cloud services, I have started learning AWS services
+								about a year ago (sadly my free trial is over). This website is actually hosted on S3
+								(other services are also used in the process but lets try to avoid a name dropping session
+								in the intro!).
+								</p>
+								<p>
+								On a more personal note, I love music and I have been practicing the guitar for around
+								20 years. I particularly enjoy listening to progressive rock styles and jazz, playing
+								in bands (in rehearsed settings or improvised jams), and writing music (I've written an
+								album, of which two tracks were recorded!).
+								</p>
+
+
+
 							</article>
 
 						<!-- Work -->
 							<article id="work">
 								<h2 class="major">Work</h2>
-								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
+								<span class="image main"><img src="images/work.jpg" alt="" /></span>
 								<!-- GitHub -->
 								<h3 class="section"><img src="images/github.png" >  Github</h3>
 								<a> <a href="https://github.com/gtregoat">Link to my GitHub account</a> </a></p>
@@ -139,7 +125,9 @@
 							<article id="about">
 								<h2 class="major">About</h2>
 								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
-								<p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
+
+							<h4 class="section"><img src="images/logo_ecn.png" width=20% align="left" style="vertical-align: middle; margin-top: -20px">
+								Master: Data processing applied to imagery, biomedical and audio </h4>
 							</article>
 
 						<!-- Contact -->
@@ -420,6 +408,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				<!-- Footer -->
 					<footer id="footer">
 						<p class="copyright">&copy; Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+						<p class="copyright"> Static website created by me using AWS services</p>
 					</footer>
 
 			</div>
