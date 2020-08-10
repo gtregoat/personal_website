@@ -971,6 +971,7 @@ input, select, textarea {
 
 		table td {
 			padding: 0.75em 0.75em;
+			vertical-align:top;
 		}
 
 		table th {
@@ -978,7 +979,7 @@ input, select, textarea {
 			font-size: 0.9em;
 			font-weight: 600;
 			padding: 0 0.75em 0.75em 0.75em;
-			text-align: left;
+			text-align: center;
 		}
 
 		table thead {
