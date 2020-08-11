@@ -9,7 +9,8 @@ phases:
       - echo "nothing"
   post_build:
     commands:
-      - echo Build completed on `date`
+      - echo "Build completed on `date`"
+      - aws cloudfront create-invalidation --distribution-id E1XFH90KMK67OA --paths "/*"
 # Include only the files required for your application to run.
 artifacts:
   files:
