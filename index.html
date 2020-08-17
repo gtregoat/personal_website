@@ -13,6 +13,49 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="shortcut icon" href="images/icon.ico" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+ 		<script>
+	function submitToAPI(e) {
+       e.preventDefault();
+       var URL = "https://vhhmdretpc.execute-api.eu-west-1.amazonaws.com/live/contactme";
+			console.log("hello")
+            if ($("#email-input").val()=="") {
+                alert ("Please enter your email id");
+                return;
+            }
+
+       var name = $("#name").val();
+	   console.log(name)
+       var email = $("#email").val();
+       var message = $("#message").val();
+       var data = {
+          name : name,
+          email : email,
+          message : message
+        };
+
+       $.ajax({
+         type: "POST",
+         url : "https://vhhmdretpc.execute-api.eu-west-1.amazonaws.com/live/contactme",
+         dataType: "json",
+         crossDomain: "true",
+         contentType: "application/json; charset=utf-8",
+         data: JSON.stringify(data),
+
+
+         success: function () {
+           // clear form and show a success message
+           alert("Successfull");
+           document.getElementById("contact").value = "";
+           location.reload();
+         },
+         error: function () {
+           // show an error message
+           alert("UnSuccessfull");
+         }});
+		}
+	</script>
+
 	</head>
 	<body class="is-preload">
 
@@ -248,8 +291,9 @@
 							<tr>
 							<td><img src="images/aws_logo.png" style="width:70%; margin-right: 10px; "/></td>
 								<td style="word-wrap: break-word;">
-								I currently mainly use serverless services such as s3, lambda, code pipeline... I am currently
-								pursuing the cloud practitioner certification.
+								I mainly use serverless services such as s3 and lambda. For example, this website uses no server
+								that I maintain, gets automatically published when I push to github thanks to CodePipeline, which
+								also invalidates the Cloudfront cache. I also am pursuing the cloud practitioner certification.
 								</td>
 								</tr>
 
