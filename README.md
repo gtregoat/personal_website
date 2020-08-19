@@ -11,3 +11,4 @@ The website is static and fully hosted on AWS and mainly follows this pattern:
 
 ### Interactive
 ![image info](readme_images/contact_me_flow.png)
+It will also send me a notification with SNS when the build process finishes.
